@@ -39,8 +39,9 @@ As usual you will follow the Deep Learning methodology to build the model:<br>
 Let's take each step and expand upon the complete process.<br>
 We will be usnig **Python** as our programming language combined with **numpy** for our mathematical computations.<br>
 
-For reference: <br>
+Reference can be taken from following links for any issues : <br>
 [Python](https://www.python.org/)
 [Numpy](http://www.numpy.org/)
+
 
 
