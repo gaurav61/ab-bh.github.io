@@ -63,7 +63,7 @@ To Demonstrate the power of Deep Neural Network we will try to Build an Image Cl
  &nbsp;&nbsp;&nbsp;2. Testing (24 Images)<br>
 On the same dataset we will compare it to one using **Logistic Regression** model.
  
-### Data Preprocessing/ Building Utilties
+### Building Utilties
 
 ![_config.yml]({{ site.baseurl }}/images/img_vec.png)<br>
 Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.<br>
@@ -71,11 +71,18 @@ A color image basically has three components.<br>
 &nbsp;&nbsp;&nbsp;1. Height(ht)<br>
 &nbsp;&nbsp;&nbsp;2. Width(wd)<br>
 &nbsp;&nbsp;&nbsp;3. Color Channels(**RGB** = 3)<br>
-So the image has to be converted into a shape: **(ht, wd,3)**.<br>
-When we feed this image into the network we need to flatten this image a **vector** from a **matrix** form such that its shape becomes: **(ht * wd * 3, 1)**.<br>
-We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(ht * wd * 3, m)**.<br>
+So the image has to be converted into a shape: **(ht, wd, 3)**.<br>
+We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(m, ht, wd, 3)**.<br>
 The following code snippet demonstrate the above explained process.<br>
 ![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
+Components of code are: <br>
+**image_to_arr**<br>
+&nbsp;&nbsp;&nbsp; Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
+**gen_labels**<br>
+&nbsp;&nbsp;&nbsp; Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).
+**load_image**<br>
+&nbsp;&nbsp;&nbsp; Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
+
 
  
 
