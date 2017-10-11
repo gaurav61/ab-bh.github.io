@@ -16,11 +16,14 @@ Looks frightening isn't it. But actually is not that complex to understand. Litt
 
 ## Motivation
 
-Big giants are competing and pushing the boundaries of technology everyday and Deeplearning being the hottest field for advancement has certainly caught eye of these blue chip companies.
+Tech giants are competing and pushing the boundaries of technology everyday and Deeplearning being the hottest field for advancement has certainly caught eye of these blue chip companies.
 
 ![_config.yml]({{ site.baseurl }}/images/deepmind.jpg)
 ![_config.yml]({{ site.baseurl }}/images/facebook.png)
 ![_config.yml]({{ site.baseurl }}/images/openAI.jpg)
+
+Day after day revolutionary engineering has resulted in many groundbreaking technologies ranging from medical, entertainment to Gaming. These huge successes and many more to come, interests us to delve into this field. With such motivation we must continue on our journey to learn about the very foundation of this hugely popular terminology "Deep Learning".
+
 
 
 
