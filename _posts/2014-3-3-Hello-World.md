@@ -19,7 +19,10 @@ Looks frightening isn't it. But actually is not that complex to understand. Litt
 
 Big giants are competing and pushing the boundaries of technology everyday and Deeplearning being the hottest field for advancement has certainly caught eye of these blue chip companies.
 
-<img src="/images/deepmind.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="/images/openAI.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><p style="clear: both;">
+![_config.yml]({{ site.baseurl }}/images/deepmind.jpg)
+![_config.yml]({{ site.baseurl }}/images/facebook.jpg)
+![_config.yml]({{ site.baseurl }}/images/openAI.jpg)
+
 
 
 
