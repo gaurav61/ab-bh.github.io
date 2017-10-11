@@ -43,13 +43,14 @@ The above confusing Neural Network image can be demystified in following steps:<
 As usual you will follow the Deep Learning methodology to build the model:<br>
     1. Aquiring Dataset
     2. Data Preprocessing and Building Utilities.
-    3. Initialize parameters / Define hyperparameters<br>
-    4. Loop for num_iterations:<br>
+    3. Build The DNN
+    4. Initialize parameters / Define hyperparameters<br>
+    5. Loop for num_iterations:<br>
     &nbsp;&nbsp;&nbsp;a. Forward propagation<br>
     &nbsp;&nbsp;&nbsp;b. Compute cost function<br>
     &nbsp;&nbsp;&nbsp;c. Backward propagation<br>
     &nbsp;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
-    5. Use trained parameters to predict labels<br>
+    6. Use trained parameters to predict labels<br>
 Let's take each step and expand upon the complete process.<br>
 We will be usnig **Python** as our programming language combined with **numpy** for our mathematical computations.<br>
 
@@ -82,6 +83,25 @@ Components of code are: <br>
 &nbsp; Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
 **load_image**<br>
 &nbsp; Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
+
+
+### Data Preprocessing
+Load pre-requisite dependencies<br>
+![_config.yml]({{ site.baseurl }}/images/1.png)<br>
+
+Load the data set<br>
+![_config.yml]({{ site.baseurl }}/images/2.png)<br>
+
+The data that we work with is loaded using the Utility we built in previous step. But, furthermore preprocessing is needed before we include it in our computation. To achieve fast computation results we will use a process called **Vectorization** using numpy. Data preprocessing is a necessary step for that.
+<br>
+Steps involved in preprocessing are:<br>
+1. **Array Flattening**: Converting input data shape from **(m, ht, wd, 3 )** to **(ht * wd * 3, m)**<br>
+2. **Data Standardization**: Dividing every value in matrix from 255 (255 being the max value in the input matrix)<br>
+
+![_config.yml]({{ site.baseurl }}/images/5.png)<br>
+
+
+
 
 
  
