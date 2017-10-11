@@ -33,7 +33,7 @@ A **DNN** primarily consists of three components:<br>
 &nbsp;&nbsp;&nbsp;2. Hidden Layers (>=1, say L)<br>
 &nbsp;&nbsp;&nbsp;3. Output Layer (=1)<br>
 The network collectively is called (L+1) Layer Neural Network<br>
-![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)
+![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)<br>
 Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers. 
 
 
