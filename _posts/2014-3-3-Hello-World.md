@@ -4,7 +4,7 @@ title: Introduction to Deep Learning
 ---
 
 
-<center> <b> Introduction </b> </center>
+##Introduction
 
 ![_config.yml]({{ site.baseurl }}/images/DNN_img.png)
 
@@ -16,6 +16,11 @@ The basic underline of Deep Learning is Neural Network, not just any Neural Netw
 Looks frightening isn't it. But actually is not that complex to understand. Little amount of **linear algebra** and **calculus** coupled with knowledge of a programming language and we are good to go forward with it.
 
 ## Motivation
+
+Big giants are competing and pushing the boundaries of technology everyday and Deeplearning being the hottest field for advancement has certainly caught eye of these blue chip companies.
+
+<img src="/images/deepmind.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="/images/facebook.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="/images/openAI.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><p style="clear: both;">
+
 
 
 
