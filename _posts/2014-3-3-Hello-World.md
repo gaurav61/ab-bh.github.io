@@ -30,10 +30,10 @@ The above confusing Neural Network image can be demystified in following steps:<
 As usual you will follow the Deep Learning methodology to build the model:<br>
     1. Initialize parameters / Define hyperparameters<br>
     2. Loop for num_iterations:<br>
-    &npsb;&nbsp;&nbsp;a. Forward propagation<br>
-    &npsb;&nbsp;&nbsp;b. Compute cost function<br>
-    &npsb;&nbsp;&nbsp;c. Backward propagation<br>
-    &npsb;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
+    &nbsb;&nbsp;&nbsp;a. Forward propagation<br>
+    &nbsb;&nbsp;&nbsp;b. Compute cost function<br>
+    &nbsb;&nbsp;&nbsp;c. Backward propagation<br>
+    &nbsb;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
     4. Use trained parameters to predict labels<br>
 
 
