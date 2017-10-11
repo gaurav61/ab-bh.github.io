@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Introduction to Deep Learning
+images:
+  - url: /images/1.png
 ---
 
 
