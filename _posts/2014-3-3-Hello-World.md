@@ -3,7 +3,6 @@ layout: post
 title: Introduction to Deep Learning
 ---
 
-
 ## Introduction
 
 ![_config.yml]({{ site.baseurl }}/images/DNN_img.png)
