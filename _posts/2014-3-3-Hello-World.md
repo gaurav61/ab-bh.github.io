@@ -12,7 +12,7 @@ The basic underline of Deep Learning is Neural Network, not just any Neural Netw
 
 ![_config.yml]({{ site.baseurl }}/deep_neural_network.png)
 
-Looks frightening isn't it. But actually is not that complex to understand. Little amount of **linear algebra** and **calculus** coupled with knowledge of a programming language and we are good to go forward with it.
+Looks frightening isn't it. But actually is not that complex to understand. Little amount of **linear algebra** and **calculus** coupled with knowledge of a programming language and we are good to go forward with it. However, prior knowledge of the mathematical stuff is not a necessary condition.
 
 ## Motivation
 
@@ -24,6 +24,17 @@ Tech giants are competing and pushing the boundaries of technology everyday and 
 
 Day after day revolutionary engineering has resulted in many groundbreaking technologies ranging from medical, entertainment to Gaming. These huge successes and many more to come, interests us to delve into this field. With such motivation we must continue on our journey to learn about the very foundation of this hugely popular terminology "Deep Learning".
 
+## Under The Hood
+
+The above confusing Neural Network image can be demystified in following steps:
+As usual you will follow the Deep Learning methodology to build the model:
+    1. Initialize parameters / Define hyperparameters
+    2. Loop for num_iterations:
+        a. Forward propagation
+        b. Compute cost function
+        c. Backward propagation
+        d. Update parameters (using parameters, and grads from backprop) 
+    4. Use trained parameters to predict labels
 
 
 
