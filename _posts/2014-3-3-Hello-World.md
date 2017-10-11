@@ -26,15 +26,15 @@ Day after day revolutionary engineering has resulted in many groundbreaking tech
 
 ## Under The Hood
 
-The above confusing Neural Network image can be demystified in following steps:
-As usual you will follow the Deep Learning methodology to build the model:
-    1. Initialize parameters / Define hyperparameters
-    2. Loop for num_iterations:
-        a. Forward propagation
-        b. Compute cost function
-        c. Backward propagation
-        d. Update parameters (using parameters, and grads from backprop) 
-    4. Use trained parameters to predict labels
+The above confusing Neural Network image can be demystified in following steps:<br>
+As usual you will follow the Deep Learning methodology to build the model:<br>
+    1. Initialize parameters / Define hyperparameters<br>
+    2. Loop for num_iterations:<br>
+        a. Forward propagation<br>
+        b. Compute cost function<br>
+        c. Backward propagation<br>
+        d. Update parameters (using parameters, and grads from backprop) <br>
+    4. Use trained parameters to predict labels<br>
 
 
 
