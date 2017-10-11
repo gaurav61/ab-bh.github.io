@@ -24,6 +24,20 @@ Tech giants are competing and pushing the boundaries of technology everyday and 
 
 Day after day revolutionary engineering has resulted in many groundbreaking technologies ranging from medical, entertainment to Gaming. These huge successes and many more to come, interests us to delve into this field. With such motivation we must continue on our journey to learn about the very foundation of this hugely popular terminology "Deep Learning".
 
+## What are Deep Neural Networks 
+Deep Neural Networks are nothing but stacking of layers of **neurons** one over the other. A Neurons is a unit of Network which performs a set of computation and passes on the output to next layer where the same process is repeated again.
+![_config.yml]({{ site.baseurl }}/images/network.png)
+As you can see in above image we have a neuron computing two components and forwarding the output to the next layer where similar computation is repeated.<br>
+A **DNN** primarily consists of three components:<br>
+&nbsp;&nbsp;&nbsp;1. Input Layer
+&nbsp;&nbsp;&nbsp;2. Hidden Layers (>=1, say L)
+&nbsp;&nbsp;&nbsp;3. Output Layer (=1)
+The network collectively is called (L+1) Layer Neural Network
+![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)
+Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers. 
+
+
+
 ## Under The Hood
 
 The above confusing Neural Network image can be demystified in following steps:<br>
@@ -42,6 +56,9 @@ We will be usnig **Python** as our programming language combined with **numpy** 
 Reference can be taken from following links for any issues : <br>
 [Python](https://www.python.org/)
 [Numpy](http://www.numpy.org/)
+
+### Dataset
+To Demonstrate the power of Deep Neura
 
 
 
