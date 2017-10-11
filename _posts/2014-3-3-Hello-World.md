@@ -37,7 +37,10 @@ As usual you will follow the Deep Learning methodology to build the model:<br>
     &nbsp;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
     4. Use trained parameters to predict labels<br>
 Let's take each step and expand upon the complete process.<br>
+We will be usnig **Python** as our programming language combined with **numpy** for our mathematical computations.<br>
 
-
+For reference: <br>
+[Python](https://www.python.org/)
+[Numpy](http://www.numpy.org/)
 
 
