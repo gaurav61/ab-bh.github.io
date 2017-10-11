@@ -34,22 +34,22 @@ A **DNN** primarily consists of three components:<br>
 &nbsp;&nbsp;&nbsp;3. Output Layer (=1)<br>
 The network collectively is called (L+1) Layer Neural Network<br>
 ![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)<br>
-Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers. 
-
-
+Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers.<br>
+We also have a 1 Layer Neural Network which is also called **Logistic Regression**, but is not as good as compared to a DNN.<br> 
 
 ## Under The Hood
 
 The above confusing Neural Network image can be demystified in following steps:<br>
 As usual you will follow the Deep Learning methodology to build the model:<br>
-    1. Data Preprocessing and Building Utilities.
-    2. Initialize parameters / Define hyperparameters<br>
-    3. Loop for num_iterations:<br>
+    1. Aquiring Dataset
+    2. Data Preprocessing and Building Utilities.
+    3. Initialize parameters / Define hyperparameters<br>
+    4. Loop for num_iterations:<br>
     &nbsp;&nbsp;&nbsp;a. Forward propagation<br>
     &nbsp;&nbsp;&nbsp;b. Compute cost function<br>
     &nbsp;&nbsp;&nbsp;c. Backward propagation<br>
     &nbsp;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
-    4. Use trained parameters to predict labels<br>
+    5. Use trained parameters to predict labels<br>
 Let's take each step and expand upon the complete process.<br>
 We will be usnig **Python** as our programming language combined with **numpy** for our mathematical computations.<br>
 
@@ -58,7 +58,26 @@ Reference can be taken from following links for any issues : <br>
 [Numpy](http://www.numpy.org/)
 
 ### Dataset
-To Demonstrate the power of Deep Neura
+To Demonstrate the power of Deep Neural Network we will try to Build an Image Classifier(Cat vs Non Cat). The dataset will consist of:<br>
+ &nbsp;&nbsp;&nbsp;1. Training (13 Images)<br>
+ &nbsp;&nbsp;&nbsp;2. Testing (24 Images)<br>
+On the same dataset we will compare it to one using **Logistic Regression** model.
+ 
+### Data Preprocessing/ Building Utilties
+
+![_config.yml]({{ site.baseurl }}/images/img_vec.png)<br>
+Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.<br>
+A color image basically has three components.<br>
+&nbsp;&nbsp;&nbsp;1. Height(ht)<br>
+&nbsp;&nbsp;&nbsp;2. Width(wd)<br>
+&nbsp;&nbsp;&nbsp;3. Color Channels(**RGB** = 3)<br>
+So the image has to be converted into a shape: **(ht, wd,3)**.<br>
+When we feed this image into the network we need to flatten this image a **vector** from a **matrix** form such that its shape becomes: **(ht * wd * 3, 1)**.<br>
+We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(ht * wd * 3, m)**.<br>
+The following code snippet demonstrate the above explained process.<br>
+![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
+
+ 
 
 
 
