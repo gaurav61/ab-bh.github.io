@@ -4,7 +4,7 @@ title: Introduction to Deep Learning
 ---
 
 
-## Introduction
+<center> <b> Introduction </b> </center>
 
 ![_config.yml]({{ site.baseurl }}/images/DNN_img.png)
 
