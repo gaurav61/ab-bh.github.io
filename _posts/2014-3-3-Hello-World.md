@@ -77,11 +77,11 @@ The following code snippet demonstrate the above explained process.<br>
 ![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
 Components of code are: <br>
 **image_to_arr**<br>
-&nbsp;&nbsp;&nbsp; Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
+&nbsp;Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
 **gen_labels**<br>
-&nbsp;&nbsp;&nbsp; Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).
+&nbsp; Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
 **load_image**<br>
-&nbsp;&nbsp;&nbsp; Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
+&nbsp; Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
 
 
  
