@@ -131,7 +131,7 @@ The main components of the Network are the parameters which will govern the perf
 **Bias(b)**<br>
 These parameters are the inputs to a **neuron** which facilitate the formation output. However there initialisation is a bit different from each other.<br>
 **W** is initialized as a random array of dimensions (n[L], n[L-1]) --> see dimensions image above for consultance. This random initialisation is due to the fact that if weights are initialized to 0 or some fixed value then all the neurons in same layer will be computing same values for features with no improvements which will result in symmetric Network (**NOT GOOD FOR DEEPLEARNING).<br>
-**b** is initialized as a numpy array of zeros (n[L],1).
+**b** is initialized as a numpy array of zeros (n[L],1).<br>
 The following can be implemented in python as follows<br>
 ![_config.yml]({{ site.baseurl }}/images/Model2.png)<br>
 
