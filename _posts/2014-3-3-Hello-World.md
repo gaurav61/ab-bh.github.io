@@ -38,7 +38,6 @@ Each successive hidden layer is capable of computing complex features from the g
 We also have a 1 Layer Neural Network which is also called **Logistic Regression**, but is not as good as compared to a DNN.<br> 
 
 ## Under The Hood
-
 The above confusing Neural Network image can be demystified in following steps:<br>
 As usual you will follow the Deep Learning methodology to build the model:<br>
     1. Aquiring Dataset
@@ -109,6 +108,28 @@ A Deep Neural Network has following components.<br>
 &nbsp;&nbsp;&nbsp;1. **Z (W * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
 &nbsp;&nbsp;&nbsp;2. **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural<br> &nbsp;&nbsp;&nbsp;Networks).<br>
 **Output Layer**: The output layer is responsible to compute the final output values ( 0/1 ).
+
+**Dimensions**: A lot of care must go into keeping a check on the dimensional integrity of the variables and matrices we are computing. Below is a quick guide to for what the dimensions of these computations must be.<br>
+![_config.yml]({{ site.baseurl }}/images/dimensions.png)<br>
+
+#### Activations
+Activations are functions that must be applied to computed linear variables (Z) so as to obtain non-linearity.<br>
+**Why non-linearity ?** It helps the neural network compute interesting features. **Linear** hidden layers are useless.<br>
+Types of activations that we use in our DNN are:<br>
+**Sigmoid**<br>
+![_config.yml]({{ site.baseurl }}/images/sigmoid.png)<br>
+One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**
+**ReLU**<br>
+![_config.yml]({{ site.baseurl }}/images/relu.png)<br>
+Also called rectified Linear Unit. To calculate interesting features **MUST BE USED IN HIDDEN LAYERS**.
+
+#### Componenents of DNN model
+
+**Initialize Parameters**<br>
+
+
+
+
 
 
 
