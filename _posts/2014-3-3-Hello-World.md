@@ -126,7 +126,7 @@ Also called rectified Linear Unit. To calculate interesting features **MUST BE U
 #### Componenents of DNN model
 
 **Initialize Parameters**<br>
-The main components of the Network are the parameters which will govern the performance and learning from data. These parameters are the inputs to a **neuron** which facilitate the formation output. However there initialisation is a bit different from each other.<br>. These components include:<br>
+The main components of the Network are the parameters which will govern the performance and learning from data. These parameters are the inputs to a **neuron** which facilitate the formation output. However there initialisation is a bit different from each other. These components include:<br>
 **Weights(W)**<br>
 Initialized as a random array of dimensions (n[L], n[L-1]) --> see dimensions image above for consultance. This random initialisation is due to the fact that if weights are initialized to 0 or some fixed value then all the neurons in same layer will be computing same values for features with no improvements which will result in symmetric Network (**NOT GOOD FOR DEEPLEARNING**).<br>
 **Bias(b)**<br>
