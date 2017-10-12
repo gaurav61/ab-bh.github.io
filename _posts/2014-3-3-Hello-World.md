@@ -118,7 +118,7 @@ Activations are functions that must be applied to computed linear variables (Z) 
 Types of activations that we use in our DNN are:<br>
 **Sigmoid**<br>
 ![_config.yml]({{ site.baseurl }}/images/sigmoid.png)<br>
-One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**
+One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**<br>
 **ReLU**<br>
 ![_config.yml]({{ site.baseurl }}/images/relu.png)<br>
 Also called rectified Linear Unit. To calculate interesting features **MUST BE USED IN HIDDEN LAYERS**.
