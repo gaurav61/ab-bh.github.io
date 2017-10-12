@@ -103,6 +103,15 @@ Steps involved in preprocessing are:<br>
 
 ### Building the Deep Neural Network
 
+A Deep Neural Network has following components.<br>
+**Inputs (X)**: The input matrix provided to the DNN as training and testing datasets.<br>
+**Hidden Layers**: Each hidden layer is given a task to compute **Forward Propagation** variables<br>
+&nbsp;&nbsp;&nbsp;1. **Z (W * X + b)**: In this step we compute linear outputs corresponding to **X** but combine it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
+&nbsp;&nbsp;&nbsp;2. **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as to obtain some **non-linearity** in our learning (This is an important aspect of Neural Networks).<br>
+**Output Layer**: The output layer is responsible to compute the final output values ( 0/1 ).
+
+
+
 
  
 
