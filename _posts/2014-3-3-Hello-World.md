@@ -192,16 +192,20 @@ The most important or we can say the heart of the model is this step. In this st
 
 Following is the python implementation of the above mentioned formulae.<br>
 
-The following function will compute dA<sup>[l-1]</sup>, dW<sup>l</sup>, db<sup>l</sup> wjere **l** is the layer for which gradients are being computed:<br>
+The following function will compute dA<sup>[l-1]</sup>, dW<sup>[l]</sup>, db<sup>[l]</sup> wjere **l** is the layer for which gradients are being computed:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
 
 The following function will compute dZ<sup>l</sup> and also return values computed by backprop_L:<br>
-![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
+![_config.yml]({{ site.baseurl }}/images/Model11.png)<br>
 
+On combining both the functions we will get the following backprop model:<br>
+![_config.yml]({{ site.baseurl }}/images/Model8.png)<br>
 These gradients are used in the **updation** process. <br>
 
 ### Updating Parameters
 
+After computing the gradients for the parameters we need to update the parameters using the **gradients** and **learning rate** which is set by the user. Now user has to be careful while chosing a learning because if learning rate is high then our algorithm will overshoot and miss the global minima while minimizing the loss. A small learning rate will ensure progress towards the minima slowly but wont overshoot it.<br>
+![_config.yml]({{ site.baseurl }}/images/learning rate.png)<br>
 
 
 
