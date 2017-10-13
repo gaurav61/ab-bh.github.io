@@ -136,7 +136,7 @@ The following can be implemented in python as follows<br>
 
 ### Structure of our Neural Network
 ![_config.yml]({{ site.baseurl }}/images/DNN_structure.png)<br>
-The image above demonstrates the exact structure that we are going to implement.
+The image above demonstrates the exact structure that we are going to implement.<br>
 1.We will have in total **L** layers in our DNN and out of these **L-1** will be hidden layers.<br>
 2.An outermost loop will run for **num_iteration** times which is as per user requirements. <br>
 3.First L-1 layers will compute **forward propagation** variables and store them in cache for future use. We will use **ReLU** activation in this layer.<br>
