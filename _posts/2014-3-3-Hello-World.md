@@ -211,6 +211,16 @@ After we have selected a learning rate its time to update our parameters. The fo
 The following python implementation demostrate the updation process:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model9.png)<br>
 
+### Evaluation
+To check how well our model performed we need to evaluate it. Output layer computes the activations using Sigmoid function. The probablistic values computed can be converting into binary outputs using a threshold (=0.5) set by the user.<br>
+![_config.yml]({{ site.baseurl }}/images/structure.png)<br>
+To evaluate the model following python implementation of **prediction** is done:<br>
+![_config.yml]({{ site.baseurl }}/images/eval.png)<br>
+
+## Image Classification using Deep Neural Network
+
+
+
 
 
 
