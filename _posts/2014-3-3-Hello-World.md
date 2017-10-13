@@ -159,7 +159,14 @@ The image above demonstrates the exact structure that we are going to implement.
 
 
 ### Forward Propagation
-The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). 
+The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). <br>
+
+{Z} = {W}<sup>T</sup>\times + {b}
+
+We will construct two functions:<br>
+
+
+* **forward_prop_L**: In this function we will compute forward linear variable(Z) and return input parameters(A_prev, W, b) as cache 
 
 
 
