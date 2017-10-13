@@ -89,6 +89,7 @@ Need to create one more utility file which contains:<br>
 * **relu_activation**: The forward activation function for hidden layers.<br>
 * **sigmoid_derivative**: The derivative of sigmoid function for backpropagation.<br>
 * **relu_derivative** : The derivative of relu function for backpropagation.<br>
+
 Python code for the utility can be seen below:<br>
 ![_config.yml]({{ site.baseurl }}/images/L_DNN_utils.png)<br>
 
