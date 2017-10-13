@@ -115,7 +115,7 @@ A Deep Neural Network has following components.<br>
 **Inputs (X)**: The input matrix provided to the DNN as training and testing datasets.<br>
 
 **Hidden Layers**: Each hidden layer is given a task to compute **Forward Propagation** variables<br>
-* **Z (W<sup>T</sup> * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
+* **Z (W<sup>T</sup>X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
 *  **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural Networks).<br>
 
 **Output Layer**: The output layer is responsible to compute the final output values ( 0/1 ).
@@ -161,13 +161,17 @@ The image above demonstrates the exact structure that we are going to implement.
 ### Forward Propagation
 The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). <br>
 
-Z = W<sup>T</sup>* X  + b
-A = g( Z )
+* **Z = W<sup>T</sup>* A_prev  + b **<br>
+* **A = g(Z)**<br>
+g being the applied activation function on Z.<br>
+T denotes transpose.<br>
+A_prev denotes previous layer activation values (**Note**: for first hidden layer 1 A_prev = input(X) )<br>
 
 We will construct two functions:<br>
-
-
-* **forward_prop_L**: In this function we will compute forward linear variable(Z) and return input parameters(A_prev, W, b) as cache 
+* **forward_prop_L**: In this function we will compute forward linear variable(Z) and also return input parameters(A_prev, W, b) as cache.<br>
+![_config.yml]({{ site.baseurl }}/images/Model3.png)<br>
+* **activation_forward_L**: In this function we will compute Z via forward_prop_L and activations using utilities we built earlier. Return input parameters and Z as cache<br>
+![_config.yml]({{ site.baseurl }}/images/Model4.png)<br>
 
 
 
