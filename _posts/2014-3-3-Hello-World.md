@@ -40,16 +40,16 @@ We also have a 1 Layer Neural Network which is also called **Logistic Regression
 ## Under The Hood
 The above confusing Neural Network image can be demystified in following steps:<br>
 As usual you will follow the Deep Learning methodology to build the model:<br>
-    + Aquiring Dataset<br>
-    + Data Preprocessing and Building Utilities.<br>
-    + Build The DNN<br>
-    + Initialize parameters / Define hyperparameters<br>
-    + Loop for num_iterations:<br>
-    &nbsp;&nbsp;&nbsp;a. Forward propagation<br>
-    &nbsp;&nbsp;&nbsp;b. Compute cost function<br>
-    &nbsp;&nbsp;&nbsp;c. Backward propagation<br>
-    &nbsp;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
-    + Use trained parameters to predict labels<br>
++ Aquiring Dataset<br>
++ Data Preprocessing and Building Utilities.<br>
++ Build The DNN<br>
++ Initialize parameters / Define hyperparameters<br>
++ Loop for num_iterations:<br>
+&nbsp;&nbsp;&nbsp;a. Forward propagation<br>
+&nbsp;&nbsp;&nbsp;b. Compute cost function<br>
+&nbsp;&nbsp;&nbsp;c. Backward propagation<br>
+&nbsp;&nbsp;&nbsp;d. Update parameters (using parameters, and grads from backprop) <br>
++ Use trained parameters to predict labels<br>
 Let's take each step and expand upon the complete process.<br>
 We will be usnig **Python** as our programming language combined with **numpy** for our mathematical computations.<br>
 
