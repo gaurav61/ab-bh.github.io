@@ -115,7 +115,7 @@ A Deep Neural Network has following components.<br>
 **Inputs (X)**: The input matrix provided to the DNN as training and testing datasets.<br>
 
 **Hidden Layers**: Each hidden layer is given a task to compute **Forward Propagation** variables<br>
-* **Z (W * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
+* **Z (W<sup>T</sup> * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
 *  **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural Networks).<br>
 
 **Output Layer**: The output layer is responsible to compute the final output values ( 0/1 ).
@@ -161,7 +161,8 @@ The image above demonstrates the exact structure that we are going to implement.
 ### Forward Propagation
 The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). <br>
 
-{Z} = {W}<sup>T</sup>\times + {b}
+Z = W<sup>T</sup>* X  + b
+A = g( Z )
 
 We will construct two functions:<br>
 
