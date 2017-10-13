@@ -81,8 +81,14 @@ Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special
 * **gen_labels**<br>
 Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
 * **load_image**<br>
-Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
+Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.<br>
 
+Work not done yet!<br>
+Need to create one more utility file which contains:<br>
+* **sigmoid_activation**: The forward activation function for the Output layer.<br>
+* **relu_activation**: The forward activation function for hidden layers.<br>
+* **sigmoid_derivative**: The derivative of sigmoid function for backpropagation.<br>
+* **relu_derivative** : The derivative of relu function for backpropagation.<br>
 
 ### Data Preprocessing
 Load pre-requisite dependencies<br>
@@ -104,6 +110,7 @@ Steps involved in preprocessing are:<br>
 
 A Deep Neural Network has following components.<br>
 **Inputs (X)**: The input matrix provided to the DNN as training and testing datasets.<br>
+
 **Hidden Layers**: Each hidden layer is given a task to compute **Forward Propagation** variables<br>
 * **Z (W * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
 *  **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural Networks).<br>
@@ -149,7 +156,9 @@ The image above demonstrates the exact structure that we are going to implement.
 
 
 ### Forward Propagation
-The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A).
+The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). 
+
+
 
 
 
