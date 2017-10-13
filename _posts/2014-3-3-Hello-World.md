@@ -137,14 +137,14 @@ The following can be implemented in python as follows<br>
 ### Structure of our Neural Network
 ![_config.yml]({{ site.baseurl }}/images/DNN_structure.png)<br>
 The image above demonstrates the exact structure that we are going to implement.<br>
-1.We will have in total **L** layers in our DNN and out of these **L-1** will be hidden layers.<br>
-2.An outermost loop will run for **num_iteration** times which is as per user requirements. <br>
-3.First L-1 layers will compute **forward propagation** variables and store them in cache for future use. We will use **ReLU** activation in this layer.<br>
-4.Last layer will compute the same variables but activation used in this layer will be **sigmoid**.<br>
-5.The output of last layer(L) will be used to compute **loss** of our model. This loss will help us initiate the **backpropagation** mechanism.<br>
-6. The backpropagation will take help of utilities built earlier and caches maintained during forward propagation to compute the gradients necessary for tuning our model parameters.<br>
-7. The gradients computed via backpropagation will be used to update our parameters. 
-6. Running steps **3-7** will enable proper tuning of parameters which can then be used in **prediction** of output on test data.
++ We will have in total **L** layers in our DNN and out of these **L-1** will be hidden layers.<br>
++ An outermost loop will run for **num_iteration** times which is as per user requirements. <br>
++ First L-1 layers will compute **forward propagation** variables and store them in cache for future use. We will use **ReLU** activation in this layer.<br>
++ Last layer will compute the same variables but activation used in this layer will be **sigmoid**.<br>
++ The output of last layer(L) will be used to compute **loss** of our model. This loss will help us initiate the **backpropagation** mechanism.<br>
++ The backpropagation will take help of utilities built earlier and caches maintained during forward propagation to compute the gradients necessary for tuning our model parameters.<br>
++ The gradients computed via backpropagation will be used to update our parameters. 
++ Running steps **3-7** will enable proper tuning of parameters which can then be used in **prediction** of output on test data.
 
 
 ### Forward Propagation
