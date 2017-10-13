@@ -244,11 +244,7 @@ Obtained parameters from the training will be used for testing evaluation. Take 
 Time for evaluation on test dataset<br>
 ![_config.yml]({{ site.baseurl }}/images/8.png)<br>
 
-**50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we are certainly getting higher accuracy values.
-
-## Conclusion
-Deep Learning is so vast and we can try so much more with the power of Deep Neural Netoworks at our disposal.<br>
-Many projcts that we can delve into, where DNNs can be applied are vast.
+**50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we will certainly getting higher accuracy values.
 
 
 
