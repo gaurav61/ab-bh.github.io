@@ -161,7 +161,7 @@ The image above demonstrates the exact structure that we are going to implement.
 ### Forward Propagation
 The first step step is to propagate inside our neural network skeleton built by initialising the parameeters mentioned above. In this step we compute the forward linear function(Z) for each neuron and their respective activations(A). <br>
 
-* **Z = W<sup>T</sup>* A_prev  + b **<br>
+* **Z = W<sup>T</sup> A_prev  + b **<br>
 * **A = g(Z)**<br>
 g being the applied activation function on Z.<br>
 T denotes transpose.<br>
