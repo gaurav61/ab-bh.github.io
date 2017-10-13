@@ -29,7 +29,7 @@ Deep Neural Networks are nothing but stacking of layers of **neurons** one over 
 ![_config.yml]({{ site.baseurl }}/images/network.png)
 As you can see in above image we have a neuron computing two components and forwarding the output to the next layer where similar computation is repeated.<br>
 A **DNN** primarily consists of three components:<br>
-&nbsp;&nbsp;&nbsp;* Input Layer<br>
+&nbsp;&nbsp;&nbsp;..* Input Layer<br>
 &nbsp;&nbsp;&nbsp;* Hidden Layers (>=1, say L)<br>
 &nbsp;&nbsp;&nbsp;* Output Layer (=1)<br>
 The network collectively is called (L+1) Layer Neural Network<br>
