@@ -29,9 +29,9 @@ Deep Neural Networks are nothing but stacking of layers of **neurons** one over 
 ![_config.yml]({{ site.baseurl }}/images/network.png)
 As you can see in above image we have a neuron computing two components and forwarding the output to the next layer where similar computation is repeated.<br>
 A **DNN** primarily consists of three components:<br>
-&nbsp;&nbsp;&nbsp;+ Input Layer<br>
-&nbsp;&nbsp;&nbsp;+ Hidden Layers (>=1, say L)<br>
-&nbsp;&nbsp;&nbsp;+ Output Layer (=1)<br>
++ Input Layer<br>
++ Hidden Layers (>=1, say L)<br>
++ Output Layer (=1)<br>
 The network collectively is called (L+1) Layer Neural Network<br>
 ![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)<br>
 Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers.<br>
@@ -59,8 +59,8 @@ Reference can be taken from following links for any issues : <br>
 
 ### Dataset
 To Demonstrate the power of Deep Neural Network we will try to Build an Image Classifier(Cat vs Non Cat). The dataset will consist of:<br>
- &nbsp;&nbsp;&nbsp;1. Training (13 Images)<br>
- &nbsp;&nbsp;&nbsp;2. Testing (24 Images)<br>
+* Training (13 Images)<br>
+* Testing (24 Images)<br>
 On the same dataset we will compare it to one using **Logistic Regression** model.
  
 ### Building Utilties
@@ -68,9 +68,9 @@ On the same dataset we will compare it to one using **Logistic Regression** mode
 ![_config.yml]({{ site.baseurl }}/images/img_vec.png)<br>
 Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.<br>
 A color image basically has three components.<br>
-&nbsp;&nbsp;&nbsp;+ Height(ht)<br>
-&nbsp;&nbsp;&nbsp;+ Width(wd)<br>
-&nbsp;&nbsp;&nbsp;+ Color Channels(**RGB** = 3)<br>
+&nbsp;&nbsp;&nbsp;* Height(ht)<br>
+&nbsp;&nbsp;&nbsp;* Width(wd)<br>
+&nbsp;&nbsp;&nbsp;* Color Channels(**RGB** = 3)<br>
 So the image has to be converted into a shape: **(ht, wd, 3)**.<br>
 We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(m, ht, wd, 3)**.<br>
 The following code snippet demonstrate the above explained process.<br>
