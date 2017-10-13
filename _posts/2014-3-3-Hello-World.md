@@ -222,6 +222,42 @@ To evaluate the model following python implementation of **prediction** is done:
 
 ## Image Classification using Deep Neural Network
 
+Load the requisite utilities <br>
+![_config.yml]({{ site.baseurl }}/images/1.png)<br>
+
+Load the dataset<br>
+![_config.yml]({{ site.baseurl }}/images/2.png)<br>
+
+Convert the training dataset into required dimensions and standardize the train/test input data.<br>
+![_config.yml]({{ site.baseurl }}/images/5.png)<br>
+
+Build the L-layer Neural Network (Here for demonstration we build a 5 layer Model - check **layer_dims** )<br>
+parameters used<br>
+**num_iterations**:3000 (The DNN forward_prop, Backprop, parameter updation wll be done 3000 times, try different values for this hyperparameter)<br>
+**learning_rate**:0.0075 (Try different values for this to see the difference in performance)<br>
+![_config.yml]({{ site.baseurl }}/images/6.png)<br>
+
+Training time! for our model<br>
+Obtained parameters from the training will be used for testing evaluation. Take a look at the parameters being used in Model training.<br>
+![_config.yml]({{ site.baseurl }}/images/7.png)<br>
+
+Time for evaluation on test dataset<br>
+![_config.yml]({{ site.baseurl }}/images/8.png)<br>
+
+**50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we are certainly getting higher accuracy values.
+
+## Conclusion
+Deep Learning is so vast and we can try so much more with the power of Deep Neural Netoworks at our disposal.<br>
+Many projcts that we can delve into, where DNNs can be applied are vast.
+
+
+
+
+
+
+
+
+
 
 
 
