@@ -68,9 +68,9 @@ On the same dataset we will compare it to one using **Logistic Regression** mode
 ![_config.yml]({{ site.baseurl }}/images/img_vec.png)<br>
 Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.<br>
 A color image basically has three components.<br>
-&nbsp;&nbsp;&nbsp;* Height(ht)<br>
-&nbsp;&nbsp;&nbsp;* Width(wd)<br>
-&nbsp;&nbsp;&nbsp;* Color Channels(**RGB** = 3)<br>
+* Height(ht)<br>
+* Width(wd)<br>
+* Color Channels(**RGB** = 3)<br>
 So the image has to be converted into a shape: **(ht, wd, 3)**.<br>
 We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(m, ht, wd, 3)**.<br>
 The following code snippet demonstrate the above explained process.<br>
