@@ -173,6 +173,9 @@ We will construct two functions:<br>
 * **activation_forward_L**: In this function we will compute Z via forward_prop_L and activations using utilities we built earlier. Return input parameters and Z as cache<br>
 ![_config.yml]({{ site.baseurl }}/images/Model4.png)<br>
 
+The complete forward propagation functionality implementation after we have built the functions mentioned above will look like this.<br>
+![_config.yml]({{ site.baseurl }}/images/Model6.png)<br>
+
 
 
 
