@@ -66,13 +66,13 @@ On the same dataset we will compare it to one using **Logistic Regression** mode
 ### Building Utilties
 
 ![_config.yml]({{ site.baseurl }}/images/img_vec.png)<br>
-Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.<br>
+Any image cannot be directly fed into the Neural Network ans computer understands numbers. So the image must be converted into numerical form so that it can be feeded into the DNN. This conversion of Image to numerical data is called **Image Vectorization**.So the image has to be converted into a shape: **(ht, wd, 3)**.<br>
+We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(m, ht, wd, 3)**.<br>
 A color image basically has three components.<br>
 * Height(ht)<br>
 * Width(wd)<br>
 * Color Channels(**RGB** = 3)<br>
-So the image has to be converted into a shape: **(ht, wd, 3)**.<br>
-We will have **m**(13 in our case) training examples so final matrix shape that will be feeded as the **Input Layer** becomes: **(m, ht, wd, 3)**.<br>
+
 The following code snippet demonstrate the above explained process.<br>
 ![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
 Components of code are: <br>
@@ -106,7 +106,7 @@ A Deep Neural Network has following components.<br>
 **Inputs (X)**: The input matrix provided to the DNN as training and testing datasets.<br>
 **Hidden Layers**: Each hidden layer is given a task to compute **Forward Propagation** variables<br>
 * **Z (W * X + b)**: In this step we compute linear outputs corresponding to **X** but combine<br> &nbsp;&nbsp;&nbsp;it with **W**(weights assignmed to each Hidden Layer) with an added bias value **b**.<br>
-*  **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural<br> &nbsp;&nbsp;&nbsp;Networks).<br>
+*  **A ( g(Z) )**: In this step we compute **activations** for our computed linear outputs so as<br> &nbsp;&nbsp;&nbsp;to obtain some **non-linearity** in our learning (This is an important aspect of Neural Networks).<br>
 **Output Layer**: The output layer is responsible to compute the final output values ( 0/1 ).
 
 **Dimensions**: A lot of care must go into keeping a check on the dimensional integrity of the variables and matrices we are computing. Below is a quick guide to for what the dimensions of these computations must be.<br>
