@@ -77,11 +77,11 @@ The following code snippet demonstrate the above explained process.<br>
 ![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
 Components of code are: <br>
 **image_to_arr**<br>
-&nbsp;Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
+Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
 **gen_labels**<br>
-&nbsp; Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
+Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
 **load_image**<br>
-&nbsp; Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
+Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
 
 
 ### Data Preprocessing
@@ -112,7 +112,7 @@ A Deep Neural Network has following components.<br>
 **Dimensions**: A lot of care must go into keeping a check on the dimensional integrity of the variables and matrices we are computing. Below is a quick guide to for what the dimensions of these computations must be.<br>
 ![_config.yml]({{ site.baseurl }}/images/dimensions.png)<br>
 
-#### Activations
+### Activations
 Activations are functions that must be applied to computed linear variables (Z) so as to obtain non-linearity.<br>
 **Why non-linearity ?** It helps the neural network compute interesting features. **Linear** hidden layers are useless.<br>
 Types of activations that we use in our DNN are:<br><br>
@@ -123,7 +123,7 @@ One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**<br><br>
 ![_config.yml]({{ site.baseurl }}/images/relu.png)<br>
 Also called rectified Linear Unit. To calculate interesting features **MUST BE USED IN HIDDEN LAYERS**.
 
-#### Componenents of DNN model
+### Componenents of DNN model
 
 **Initialize Parameters**<br>
 The main components of the Network are the parameters which will govern the performance and learning from data. These parameters are the inputs to a **neuron** which facilitate the formation output. However there initialisation is a bit different from each other. These components include:<br>
@@ -133,6 +133,8 @@ Initialized as a random array of dimensions (n[L], n[L-1]) --> see dimensions im
 Initialized as a numpy array of zeros (n[L],1).<br><br>
 The following can be implemented in python as follows<br>
 ![_config.yml]({{ site.baseurl }}/images/Model2.png)<br>
+
+
 
 
 
