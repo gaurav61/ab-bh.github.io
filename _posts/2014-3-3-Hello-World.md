@@ -29,9 +29,9 @@ Deep Neural Networks are nothing but stacking of layers of **neurons** one over 
 ![_config.yml]({{ site.baseurl }}/images/network.png)
 As you can see in above image we have a neuron computing two components and forwarding the output to the next layer where similar computation is repeated.<br>
 A **DNN** primarily consists of three components:<br>
-&nbsp;&nbsp;&nbsp;1. Input Layer<br>
-&nbsp;&nbsp;&nbsp;2. Hidden Layers (>=1, say L)<br>
-&nbsp;&nbsp;&nbsp;3. Output Layer (=1)<br>
+&nbsp;&nbsp;&nbsp;+ Input Layer<br>
+&nbsp;&nbsp;&nbsp;+ Hidden Layers (>=1, say L)<br>
+&nbsp;&nbsp;&nbsp;+ Output Layer (=1)<br>
 The network collectively is called (L+1) Layer Neural Network<br>
 ![_config.yml]({{ site.baseurl }}/images/layer_by_layer.jpg)<br>
 Each successive hidden layer is capable of computing complex features from the given input and its computation is comparatively more complex than its predecessor layers.<br>
@@ -76,11 +76,11 @@ We will have **m**(13 in our case) training examples so final matrix shape that 
 The following code snippet demonstrate the above explained process.<br>
 ![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
 Components of code are: <br>
-+**image_to_arr**<br>
++ **image_to_arr**<br>
 Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
-+**gen_labels**<br>
++ **gen_labels**<br>
 Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
-+**load_image**<br>
++ **load_image**<br>
 Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.
 
 
