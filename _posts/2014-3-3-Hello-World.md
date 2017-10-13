@@ -192,11 +192,16 @@ The most important or we can say the heart of the model is this step. In this st
 
 Following is the python implementation of the above mentioned formulae.<br>
 
-The following function will compute dA<sup>[l-1]</sup>, dW<sup>l</sup>, db<sup>l</sup>:<br>
+The following function will compute dA<sup>[l-1]</sup>, dW<sup>l</sup>, db<sup>l</sup> wjere **l** is the layer for which gradients are being computed:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
 
 The following function will compute dZ<sup>l</sup> and also return values computed by backprop_L:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
+
+These gradients are used in the **updation** process. <br>
+
+### Updating Parameters
+
 
 
 
