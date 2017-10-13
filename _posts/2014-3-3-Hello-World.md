@@ -176,6 +176,13 @@ We will construct two functions:<br>
 The complete forward propagation functionality implementation after we have built the functions mentioned above will look like this.<br>
 ![_config.yml]({{ site.baseurl }}/images/Model5.png)<br>
 
+### Cost Function
+
+For any model you build keeping track of the cost and minimisation of it are two important features. Cost should decrease so that it is ensured that our learning is improved with each new training sample. <br>
+![_config.yml]({{ site.baseurl }}/images/cost.png)<br>
+Following is the python implementation for the Cost function:<br>
+![_config.yml]({{ site.baseurl }}/images/Model6.png)<br>
+
 
 
 
