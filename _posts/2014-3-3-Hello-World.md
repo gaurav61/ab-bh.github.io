@@ -183,6 +183,24 @@ For any model you build keeping track of the cost and minimisation of it are two
 Following is the python implementation for the Cost function:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model6.png)<br>
 
+### Backpropagation
+
+The most important or we can say the heart of the model is this step. In this step we compute the gradients of each paramter used in our computation. In simpler words we try to calculate the measure of the effect that a parameter has on the Loss function. In mathematical terms we use a method called **chaining rule** in calculus combined with derivatives  to calculate all the derivatives. But without delving into the complicated maths of it, below are the formulae we need to compute.<br>
+
+![_config.yml]({{ site.baseurl }}/images/backprop.png)<br>
+![_config.yml]({{ site.baseurl }}/images/backprop1.png)<br>
+
+Following is the python implementation of the above mentioned formulae.<br>
+
+The following function will compute dA<sup>[l-1]</sup>, dW<sup>l</sup>, db<sup>l</sup>:<br>
+![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
+
+The following function will compute dZ<sup>l</sup> and also return values computed by backprop_L:<br>
+![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
+
+
+
+
 
 
 
