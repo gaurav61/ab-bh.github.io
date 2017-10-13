@@ -174,7 +174,7 @@ We will construct two functions:<br>
 ![_config.yml]({{ site.baseurl }}/images/Model4.png)<br>
 
 The complete forward propagation functionality implementation after we have built the functions mentioned above will look like this.<br>
-![_config.yml]({{ site.baseurl }}/images/Model6.png)<br>
+![_config.yml]({{ site.baseurl }}/images/Model5.png)<br>
 
 
 
