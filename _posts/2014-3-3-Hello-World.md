@@ -134,6 +134,9 @@ One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**<br><br>
 ![_config.yml]({{ site.baseurl }}/images/relu.png)<br>
 Also called rectified Linear Unit. To calculate interesting features **MUST BE USED IN HIDDEN LAYERS**.
 
+**Note**: We also ned to calculate derivatives of these activation functions, as follows:<br> 
+![_config.yml]({{ site.baseurl }}/images/sig_deri.png) ![_config.yml]({{ site.baseurl }}/images/relu_deri.png)<br>
+
 ### Componenents of DNN model
 
 **Initialize Parameters**<br>
