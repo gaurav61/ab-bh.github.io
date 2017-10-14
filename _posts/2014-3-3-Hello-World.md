@@ -500,36 +500,167 @@ After computing the gradients for the parameters we need to update the parameter
 After we have selected a learning rate its time to update our parameters. The formulae for doing so are shown below:<br>
 ![_config.yml]({{ site.baseurl }}/images/update.png)<br>
 The following python implementation demostrate the updation process:<br>
-![_config.yml]({{ site.baseurl }}/images/Model9.png)<br>
+```python
+def update_parameters(parameters, grads, learning_rate):
+	# input:
+	# parmeters: dictionary containing weights, biases for each layer
+	# grads: dictionary of gradients computed via backprop for parameters of each layer
+	# learning_rate: the learning_rate enabling us to update our parameters
+	# output:
+	# parameters: updated dictionary of parameters
+	
+	L = len(parameters)//2 # total number of layers in our model
+	for l in xrange(1,L+1): # for each layer 1...N
+		parameters['W'+str(l)] -= learning_rate * grads['dW'+str(l)] 
+		parameters['b'+str(l)] -= learning_rate * grads['db'+str(l)] 
+
+	return parameters
+```
 
 ### Evaluation
 To check how well our model performed we need to evaluate it. Output layer computes the activations using Sigmoid function. The probablistic values computed can be converting into binary outputs using a threshold (=0.5) set by the user.<br>
 ![_config.yml]({{ site.baseurl }}/images/structure.png)<br>
 To evaluate the model following python implementation of **prediction** is done:<br>
-![_config.yml]({{ site.baseurl }}/images/eval.png)<br>
+```python
+def predict(X, y, parameters):
+	# input:
+	# X: train/ test input data
+	# y: train/test labels
+	# parameters: the learned parameter inputs for evaluation
+	# output:
+	# p: probablistic values of output layer based on a threshold(=0.5 here)
+
+	m = X.shape[1]
+	n = len(parameters)//2
+
+	# forward prop
+	probas, caches = L_model_forward(X, parameters)
+	p = (probas > 0.5).astype(int)
+	print "Accuracy: " + str(np.sum(p==y)/float(m))
+	return p
+```
 
 ## Image Classification using Deep Neural Network
 
 Load the requisite utilities <br>
-![_config.yml]({{ site.baseurl }}/images/1.png)<br>
+```python
+# Jupyter Notebook
+
+import numpy as np 
+import matplotlib.pyplot as plt
+from L_Layer_model import *
+import scipy
+from PIL import Image
+from scipy import ndimage
+from utils import *
+
+
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (5.0, 4.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+
+%load_ext autoreload
+%autoreload 2
+
+np.random.seed(1)
+```
 
 Load the dataset<br>
-![_config.yml]({{ site.baseurl }}/images/2.png)<br>
+```python
+train_x_orig, train_y, test_x_orig, test_y = load_image()
+```
 
 Convert the training dataset into required dimensions and standardize the train/test input data.<br>
-![_config.yml]({{ site.baseurl }}/images/5.png)<br>
+```python
+# Reshape the training and test examples 
+train_x_flatten = train_x_orig.reshape(train_x_orig.shape[0], -1).T   # The "-1" makes reshape flatten the remaining dimensions
+test_x_flatten = test_x_orig.reshape(test_x_orig.shape[0], -1).T
+
+# Standardize data to have feature values between 0 and 1.
+train_x = train_x_flatten/255.
+test_x = test_x_flatten/255.
+
+print ("train_x's shape: " + str(train_x.shape))
+print ("test_x's shape: " + str(test_x.shape))
+
+'''
+output:
+
+train_x's shape: (12288, 13)
+test_x's shape: (12288, 24)
+
+```
 
 Build the L-layer Neural Network (Here for demonstration we build a 5 layer Model - check **layer_dims** )<br>
-parameters used<br>
-**num_iterations**:3000 (The DNN forward_prop, Backprop, parameter updation wll be done 3000 times, try different values for this hyperparameter)<br>
-**learning_rate**:0.0075 (Try different values for this to see the difference in performance)<br>
-![_config.yml]({{ site.baseurl }}/images/6.png)<br>
+Start by initializing the layer dimensions<br>
+```python
+## mention how many layer network you want here by adding layer dimensions in layer_dims
+
+layers_dims = [12288, 20, 7, 5, 1] # we are going for a 5-Layer Deep Neural Network
+```
+Following code enables us to construct a Deep Neural Network for our corresponding **layers_dims**
+```python
+def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000, print_cost=False):
+    # input:
+    # X: input train/test data
+    # Y: input train/test labels
+    # layers_dims: a list of each layer dimensions 
+    # learning_rate: a value crucial for updating our parameters (W, b) after backpropagation
+    # num_iterations: the total number of iterations for which we will run our model to learn parameters fit enough to predict image labels
+    # print_cost: a verbose parameter for checking training status by printing cost
+    # output:
+    # parameters: return the parameters once the training is completed for test data evaluation
+    
+    np.random.seed(1)
+    costs = [] # keep track of cost
+    
+    # Parameters initialization.
+    parameters = init_parameters_L(layers_dims)
+    # Loop (gradient descent)
+    for i in range(0, num_iterations):
+
+        # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
+        AL, caches = L_model_forward(X, parameters)
+        
+        # Compute cost.
+        cost = compute_cost(AL, Y)
+    
+        # Backward propagation.
+        grads = L_model_backward(AL, Y, caches)
+ 
+        # Update parameters.
+        parameters = update_parameters(parameters, grads, learning_rate)
+                
+        # Print the cost every 100 training example
+        if print_cost and i % 100 == 0:
+            print ("Cost after iteration %i: %f" %(i, cost))
+        if print_cost and i % 100 == 0:
+            costs.append(cost)
+            
+    # plot the cost
+    plt.plot(np.squeeze(costs))
+    plt.ylabel('cost')
+    plt.xlabel('iterations (per tens)')
+    plt.title("Learning rate =" + str(learning_rate))
+    plt.show()
+    
+    return parameters
+```
 
 Training time! for our model<br>
 Obtained parameters from the training will be used for testing evaluation. Take a look at the parameters being used in Model training.<br>
-![_config.yml]({{ site.baseurl }}/images/7.png)<br>
+```python
+parameters = L_layer_model(train_x, train_y, layers_dims, num_iterations = 2500, print_cost = True)
+```
+We can have a look at the training process<br>
+![_config.yml]({{ site.baseurl }}/images/training.png)<br>
 
 Time for evaluation on test dataset<br>
+```python
+pred_train = predict(train_x, train_y, parameters)
+pred_test = predict(test_x, test_y, parameters)
+```
 ![_config.yml]({{ site.baseurl }}/images/8.png)<br>
 
 **50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we will certainly getting higher accuracy values.
