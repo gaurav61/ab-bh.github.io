@@ -669,6 +669,12 @@ pred_test = predict(test_x, test_y, parameters)
 [CS231N](http://cs231n.stanford.edu/)<br>
 [deeplearnin.ai](https://www.coursera.org/specializations/deep-learning)<br>
 [Google](https://www.google.com)<br>
+All the code snippets mentioned above have been compiled as code on link given below<br>
+[Introduction to Deeplearning](https://github.com/ab-bh/Deep-Neural-Network-Implementation)<br>
+Have fun!<br>
+Keep Learning<br>
+Don't forget to fork and star :P<br> 
+
 
 
 
