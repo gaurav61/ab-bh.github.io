@@ -94,20 +94,51 @@ Components of utility are: <br>
 Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
 ```python
 def image_to_arr(image_list, path):
-	images_list_ = []
-	for image in image_list:
-		im = Image.open(path + '/' + image)
-		im = im.resize((64,64))
-		im = np.array(im.getdata()).reshape(im.size[0], im.size[1], 3)
-		images_list_.append(im)
-	images_list_ = np.asarray(images_list_)
-	images_list_ = images_list_.astype('float32')
-	return images_list_
+	images_list_ = [] #list to store image data
+	for image in image_list: # for each image 
+		im = Image.open(path + '/' + image) # open the image
+		im = im.resize((64,64)) # resize the image to 64*64 shape
+		im = np.array(im.getdata()).reshape(im.size[0], im.size[1], 3) # convert the digital image to numpy array
+		images_list_.append(im) # store the image data to list
+	images_list_ = np.asarray(images_list_) # convert the list into numpy array 
+	images_list_ = images_list_.astype('float32') # set the data type of array as float32
+	return images_list_ # return the image data
 ```
 * **gen_labels**<br>
 Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
+```python
+def gen_labels(image_list, path):
+	y = [] # store image labels 
+	for image in image_list: # for each image in the list
+		if image[:3]=='cat': y.append(1) # if image_label cat store 1
+		else: y.append(0) # else store 0
+	y = np.asarray(y) # convert list to numpy  array
+	y = y.astype('float32') # set the data tyoe to float32
+	return y.reshape(1,y.shape[0]) return the label array
+```
 * **load_image**<br>
 Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.<br>
+```python
+def load_image():
+
+	# load training/testing data
+	images_train = os.listdir(path1)
+	images_test = os.listdir(path2)
+
+	# train image data and labels will be stored here
+	images_train_ = image_to_arr(images_train, path1)
+
+	## test image data will be stored here 
+	images_test_  = image_to_arr(images_test, path2)
+	
+	#toimage(images_train_[0]).show() # to see image back
+
+	# load train/test labels
+	y_train = gen_labels(images_train, path1)
+	y_test  = gen_labels(images_test, path2) 
+	
+	return images_train_, y_train, images_test_, y_test
+```
 
 Work not done yet!<br>
 Need to create one more utility file which contains:<br>
