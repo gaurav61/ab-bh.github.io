@@ -74,10 +74,36 @@ A color image basically has three components.<br>
 * Color Channels(**RGB** = 3)<br>
 
 The following code snippet demonstrate the above explained process.<br>
-![_config.yml]({{ site.baseurl }}/images/utils.png)<br>
-Components of code are: <br>
+Load the pre-requesite dependencies
+```python
+# load necessary_train utilities
+import os 
+import numpy as np
+from PIL import Image
+import PIL
+from scipy.misc import toimage
+```
+store the path of training and testing data for future use
+```python
+path1 ='path_to_training_data'
+path2 ='path_to_test_data'
+```
+
+Components of utility are: <br>
 * **image_to_arr**<br>
 Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
+```python
+def image_to_arr(image_list, path):
+	images_list_ = []
+	for image in image_list:
+		im = Image.open(path + '/' + image)
+		im = im.resize((64,64))
+		im = np.array(im.getdata()).reshape(im.size[0], im.size[1], 3)
+		images_list_.append(im)
+	images_list_ = np.asarray(images_list_)
+	images_list_ = images_list_.astype('float32')
+	return images_list_
+```
 * **gen_labels**<br>
 Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
 * **load_image**<br>
