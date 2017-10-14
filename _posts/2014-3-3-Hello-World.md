@@ -92,6 +92,7 @@ path2 ='path_to_test_data'
 Components of utility are: <br>
 * **image_to_arr**<br>
 Takes list of all images and converts them into a (m, 64, 64, 3) matrix, special care must be taken of dimensions and datatype stored in the numpy arrays.<br>
+
 ```python
 def image_to_arr(image_list, path):
 	images_list_ = [] #list to store image data
@@ -106,6 +107,7 @@ def image_to_arr(image_list, path):
 ```
 * **gen_labels**<br>
 Takes the labels of the images converted to numpy arrays and genrates output labels for them (0=Non_Cat, 1= Cat). Shape of array must be (1,m).<br>
+
 ```python
 def gen_labels(image_list, path):
 	y = [] # store image labels 
@@ -118,6 +120,7 @@ def gen_labels(image_list, path):
 ```
 * **load_image**<br>
 Takes both functions and computes the result for training and testing images and returns the requisite numpy arrays as output.<br>
+
 ```python
 def load_image():
 
@@ -143,13 +146,42 @@ def load_image():
 Work not done yet!<br>
 Need to create one more utility file which contains:<br>
 * **sigmoid_activation**: The forward activation function for the Output layer.<br>
+
+```python
+def sigmoid(Z):
+	A = 1/(1+np.exp(-Z)) # for more information regarding formula refer to Activation section below
+	return A, Z # return activation and linear_compuatation
+```
+
 * **relu_activation**: The forward activation function for hidden layers.<br>
+
+```python
+def  relu(Z):
+	A = np.maximum(0,Z) # for more information regarding formula refer to Activation section below 
+	return A, Z # return activation and linear_computation
+
+```
+
 * **sigmoid_derivative**: The derivative of sigmoid function for backpropagation.<br>
+
+```python
+def sigmoid_derivative(dA, activation_cache):
+	Z = activation_cache
+	g = 1/(1+np.exp(-Z))
+	dZ = dA * g * (1-g) # # for more information regarding formula refer to Activation section below
+	assert (dZ.shape == activation_cache.shape) # type checking
+	return dZ # return the backprop dZ values
+```
 * **relu_derivative** : The derivative of relu function for backpropagation.<br>
 
-Python code for the utility can be seen below:<br>
-![_config.yml]({{ site.baseurl }}/images/L_DNN_utils.png)<br>
-
+```python
+def relu_derivative(dA, activation_cache):
+	Z = activation_cache
+	dZ = np.array(dA, copy=True)
+	dZ[Z<=0] = 0 # this is the derivative step...for more info refer to Activatin section below
+	assert (dZ.shape == Z.shape)
+	return dZ # return the backprop dZ values
+```
 ### Data Preprocessing
 Load pre-requisite dependencies<br>
 ![_config.yml]({{ site.baseurl }}/images/1.png)<br>
