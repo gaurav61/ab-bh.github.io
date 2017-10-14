@@ -216,19 +216,11 @@ def relu_derivative(dA, activation_cache):
 	return dZ 
 ```
 ### Data Preprocessing
-Load pre-requisite dependencies<br>
-![_config.yml]({{ site.baseurl }}/images/1.png)<br>
 
-Load the data set<br>
-![_config.yml]({{ site.baseurl }}/images/2.png)<br>
-
-The data that we work with is loaded using the Utility we built in previous step. But, furthermore preprocessing is needed before we include it in our computation. To achieve fast computation results we will use a process called **Vectorization** using numpy. Data preprocessing is a necessary step for that.
-<br>
+The data that we work with is loaded using the Utility we built in previous step. But, furthermore preprocessing is needed before we include it in our computation. To achieve fast computation results we will use a process called **Vectorization** using numpy. Data preprocessing is a necessary step for that.<br>
 Steps involved in preprocessing are:<br>
 * **Array Flattening**: Converting input data shape from **(m, ht, wd, 3 )** to **(ht * wd * 3, m)**<br>
 * **Data Standardization**: Dividing every value in matrix from 255 (255 being the max value in the input matrix)<br>
-
-![_config.yml]({{ site.baseurl }}/images/5.png)<br>
 
 
 ### Building the Deep Neural Network
