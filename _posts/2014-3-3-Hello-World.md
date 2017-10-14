@@ -267,7 +267,7 @@ Also called rectified Linear Unit. To calculate interesting features **MUST BE U
 
 For constructing the DNN model do not forget to load these dependencies<br>
 ```python
-file_name: L_Layer_model.py
+#file_name: L_Layer_model.py
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -417,13 +417,80 @@ The most important or we can say the heart of the model is this step. In this st
 Following is the python implementation of the above mentioned formulae.<br>
 
 The following function will compute dA<sup>[l-1]</sup>, dW<sup>[l]</sup>, db<sup>[l]</sup> where **l** is the layer for which gradients are being computed:<br>
-![_config.yml]({{ site.baseurl }}/images/Model7.png)<br>
+```python
+def backprop_L(dZ, cache):
+	# input:
+	# dZ: current layer linear computation derivative
+	# cache: a tuple containing A_prev, W, b
+	# output:
+	# dA_prev: previous layer activation derivative
+	# dW: current layer weights derivative
+	# db: currrent layer bias derivative
 
-The following function will compute dZ<sup>l</sup> and also return values computed by backprop_L:<br>
-![_config.yml]({{ site.baseurl }}/images/Model11.png)<br>
+	A_prev, W, b = cache
+	m = A_prev.shape[1]
+
+	dW = np.dot(dZ, A_prev.T)/m
+	db = np.sum(dZ, axis=1, keepdims=True)/m
+	dA_prev = np.dot(W.T, dZ)
+
+	assert( dW.shape == W.shape)
+	assert( db.shape == b.shape)
+	assert( dA_prev.shape == A_prev.shape)
+
+	return dA_prev, dW, db
+```
+
+```python
+def activation_backward_L(dA, cache, activation):
+	# input:
+	# dA: current layer activation derivative
+	# cache: a tuple containing A_prev, W, b
+	# activation: current layer activation (ReLU / sigmoid)
+	# output:
+	# dA_prev: previous layer activation derivative
+	# dW: current layer weights derivative
+	# db: currrent layer bias derivative
+	
+	linear_cache, activation_cache = cache
+	m = linear_cache[0].shape[1]
+	if activation == 'relu':
+		dZ = relu_derivative(dA, activation_cache)
+		dA_prev, dW, db = backprop_L(dZ, linear_cache)
+	if activation == 'sigmoid':
+		dZ = sigmoid_derivative(dA, activation_cache)
+		dA_prev, dW, db = backprop_L(dZ, linear_cache)
+
+	return dA_prev, dW, db
+```
 
 On combining both the functions we will get the following backprop model:<br>
-![_config.yml]({{ site.baseurl }}/images/Model8.png)<br>
+```python
+def L_model_backward(AL, Y, caches):
+	# input:
+	# AL: Last layer activation values
+	# Y : train/ test labels
+	# caches: list of every layer caches containing A_prev, W, b, Z
+	# output:
+	# grads: dictionary of the gradient/ derivative values for parameters for each layer
+	
+	Y = Y.reshape(AL.shape)
+	dAL = -(np.divide(Y, AL) - np.divide(1-Y, 1-AL))
+	L = len(caches)
+	grads = {}
+	m = AL.shape[1]
+
+	# for the only sigmoid layer
+	current_cache = caches[L-1]
+	grads['dA'+str(L)], grads['dW'+str(L)], grads['db'+str(L)]  = activation_backward_L(dAL, current_cache, activation='sigmoid')
+
+	#for the relu layers
+	for l in xrange(L-2,-1,-1):
+		current_cache = caches[l]
+		grads['dA'+str(l+1)], grads['dW'+str(l+1)], grads['db'+str(l+1)] = activation_backward_L(grads['dA'+str(l+2)], current_cache, activation='relu')
+
+	return grads
+```
 These gradients are used in the **updation** process. <br>
 
 ### Updating Parameters
