@@ -663,7 +663,12 @@ pred_test = predict(test_x, test_y, parameters)
 ```
 ![_config.yml]({{ site.baseurl }}/images/8.png)<br>
 
-**50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we will certainly getting higher accuracy values.
+**50%** accuracy. Not bad! for a small dataset we used for training and testing. With bigger dataset we will certainly get higher accuracy values.
+
+## References
+[CS231N](http://cs231n.stanford.edu/)<br>
+[deeplearnin.ai](https://www.coursera.org/specializations/deep-learning)<br>
+[Google](https://www.google.com)<br>
 
 
 
