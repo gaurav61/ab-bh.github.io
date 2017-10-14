@@ -76,7 +76,8 @@ A color image basically has three components.<br>
 The following code snippet demonstrate the above explained process.<br>
 Load the pre-requesite dependencies
 ```python
-# load necessary_train utilities
+# file_name: utils.py
+
 import os 
 import numpy as np
 from PIL import Image
@@ -145,20 +146,40 @@ def load_image():
 
 Work not done yet!<br>
 Need to create one more utility file which contains:<br>
+
+Dont forget to import **numpy**<br>
+```python
+# file_name: L_DNN_utils.py
+
+import numpy as np
+```
+
 * **sigmoid_activation**: The forward activation function for the Output layer.<br>
 
 ```python
 def sigmoid(Z):
+	# input:
+	# Z: linear computation of each layer neurons
+	# output:
+	# A: each layer activation
+	# Z: linear computation for storing pursposes
+	
 	A = 1/(1+np.exp(-Z)) # for more information regarding formula refer to Activation section below
-	return A, Z # return activation and linear_compuatation
+	return A, Z 
 ```
 
 * **relu_activation**: The forward activation function for hidden layers.<br>
 
 ```python
 def  relu(Z):
+	# input:
+	# Z: linear computation of each layer neurons
+	# output:
+	# A: each layer activation
+	# Z: linear computation for storing pursposes
+	
 	A = np.maximum(0,Z) # for more information regarding formula refer to Activation section below 
-	return A, Z # return activation and linear_computation
+	return A, Z
 
 ```
 
@@ -166,21 +187,33 @@ def  relu(Z):
 
 ```python
 def sigmoid_derivative(dA, activation_cache):
+	# input:
+	# dA: current layer activation derivative from backpropagation
+	# activation_cache: current layer linear computation (Z)
+	# output:
+	# dZ: current layer linear computation derivative
+
 	Z = activation_cache
 	g = 1/(1+np.exp(-Z))
 	dZ = dA * g * (1-g) # # for more information regarding formula refer to Activation section below
 	assert (dZ.shape == activation_cache.shape) # type checking
-	return dZ # return the backprop dZ values
+	return dZ 
 ```
 * **relu_derivative** : The derivative of relu function for backpropagation.<br>
 
 ```python
 def relu_derivative(dA, activation_cache):
+	# input:
+	# dA: current layer activation derivative from backpropagation
+	# activation_cache: current layer linear computation (Z)
+	# output:
+	# dZ: current layer linear computation derivative
+
 	Z = activation_cache
 	dZ = np.array(dA, copy=True)
 	dZ[Z<=0] = 0 # this is the derivative step...for more info refer to Activatin section below
 	assert (dZ.shape == Z.shape)
-	return dZ # return the backprop dZ values
+	return dZ 
 ```
 ### Data Preprocessing
 Load pre-requisite dependencies<br>
@@ -224,9 +257,22 @@ One of the famous activation functions. **MUST BE USED IN OUTPUT LAYER**<br><br>
 Also called rectified Linear Unit. To calculate interesting features **MUST BE USED IN HIDDEN LAYERS**.
 
 **Note**: We also ned to calculate derivatives of these activation functions, as follows:<br> 
-![_config.yml]({{ site.baseurl }}/images/sig_deri.png) ![_config.yml]({{ site.baseurl }}/images/relu_deri.png)<br>
+**sigmoid derivative**<br>
+![_config.yml]({{ site.baseurl }}/images/sig_deri.jpg)<br>
+
+**relu_derivative**
+![_config.yml]({{ site.baseurl }}/images/relu_deri.png)<br>
 
 ### Componenents of DNN model
+
+For constructing the DNN model do not forget to load these dependencies<br>
+```python
+file_name: L_Layer_model.py
+
+import numpy as np
+import matplotlib.pyplot as plt
+from L_DNN_utils import sigmoid, relu, sigmoid_derivative, relu_derivative
+```
 
 **Initialize Parameters**<br>
 The main components of the Network are the parameters which will govern the performance and learning from data. These parameters are the inputs to a **neuron** which facilitate the formation output. However there initialisation is a bit different from each other. These components include:<br>
@@ -235,7 +281,20 @@ Initialized as a random array of dimensions (n[L], n[L-1]) --> see dimensions im
 **Bias(b)**<br>
 Initialized as a numpy array of zeros (n[L],1).<br><br>
 The following can be implemented in python as follows<br>
-![_config.yml]({{ site.baseurl }}/images/Model2.png)<br>
+```python
+def init_parameters_L(layer_dims):
+	# layer_dims will contain each neural network layer size, enabling us to corectly assigning dimensions to parameters
+	
+	np.random.seed(1)
+	parameters = {} # create a dictinary to store the parameters
+	for l in xrange(1,len(layer_dims)): # for each layer
+		parameters['W'+str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1])*0.01 # random initialization of Weights array
+		parameters['b'+str(l)] = np.zeros((layer_dims[l],1)) # bias initialization to array of 0s
+
+		assert(parameters['W'+str(l)].shape == (layer_dims[l],layer_dims[l-1]))
+		assert(parameters['b'+str(l)].shape == (layer_dims[l],1))
+	return parameters
+```
 
 ### Structure of our Neural Network
 ![_config.yml]({{ site.baseurl }}/images/DNN_structure.png)<br>
@@ -261,19 +320,92 @@ A_prev denotes previous layer activation values (**Note**: for first hidden laye
 
 We will construct two functions:<br>
 * **forward_prop_L**: In this function we will compute forward linear variable(Z) and also return input parameters(A_prev, W, b) as cache.<br>
-![_config.yml]({{ site.baseurl }}/images/Model3.png)<br>
+
+```python
+def forward_prop_L(A_prev, W, b):
+	# input:
+	# A_prev: previous layer activation
+	# W: current layer weights
+	# b: current layer bias
+	# output:
+	# A: current layer activation
+	# cache: containing A_prev, W, b
+	
+ 	Z = np.dot(W, A_prev) + b
+	assert(Z.shape == (W.shape[0], A_prev.shape[1]))
+	cache = (A_prev, W, b)
+	return Z, cache
+```
+
 * **activation_forward_L**: In this function we will compute Z via forward_prop_L and activations using utilities we built earlier. Return input parameters and Z as cache<br>
-![_config.yml]({{ site.baseurl }}/images/Model4.png)<br>
+
+```python
+def activation_forward_L(A_prev, W, b, activation):
+	# input:
+	# A_prev: previous layer activation
+	# W: current layer weights
+	# b: current layer bias
+	# activation: Relu pr sigmoid (depends on the layer you are working on)
+	# output:
+	# A: current layer activation
+	# caches: a tuple of (A_prev, W, b), Z
+	
+	if activation == "relu":
+		Z, linear_cache     = forward_prop_L(A_prev, W, b)
+		A, activation_cache = relu(Z) 
+	
+	if activation == "sigmoid":
+		Z, linear_cache     = forward_prop_L(A_prev, W, b)
+		A, activation_cache = sigmoid(Z) 
+
+	assert(A.shape == (W.shape[0], A_prev.shape[1]))
+	return A, (linear_cache, activation_cache)
+```
 
 The complete forward propagation functionality implementation after we have built the functions mentioned above will look like this.<br>
-![_config.yml]({{ site.baseurl }}/images/Model5.png)<br>
+```python
+def L_model_forward(X, parameters):
+	# for first L-1 layers relu activation will be used
+	# for last layer sigmoid activation will be used
+	# input:
+	# parameters: dictionary of W, b values of each layer(0...L)
+	# X: input data
+	# output:
+	# AL : the output value of the last/output layer
+	# caches: a list of caches returned by activation_forward_L for each layer
+	
+	L = len(parameters)//2
+	A = X
+	caches = [] # to store all necessary (linear_cache, activation_cache ) for backprop
+	for l in xrange(1, L):
+		A_prev = A
+		A, cache = activation_forward_L(A_prev, parameters['W'+str(l)], parameters['b'+str(l)], activation='relu')
+		caches.append(cache)
+	AL, cache = activation_forward_L(A, parameters['W'+str(L)], parameters['b'+str(L)], activation='sigmoid')
+	caches.append(cache)
+
+	assert(AL.shape == (1, X.shape[1]))
+	return AL, caches
+```
 
 ### Cost Function
 
 For any model you build keeping track of the cost and minimisation of it are two important features. Cost should decrease so that it is ensured that our learning is improved with each new training sample. <br>
 ![_config.yml]({{ site.baseurl }}/images/cost.png)<br>
 Following is the python implementation for the Cost function:<br>
-![_config.yml]({{ site.baseurl }}/images/Model6.png)<br>
+```python
+def compute_cost(AL, Y):
+	#input: 
+	# AL: output of the last/output layer (probablistic values of model)
+	# Y: train/test labels for the same
+	# output:
+	# cost for the outputs generated during current iteration
+	
+	m = Y.shape[1]
+	cost = np.squeeze( -np.sum(Y*np.log(AL) + (1-Y)*np.log(1-AL))/m ) # [[val]] = val using squeeze
+	assert (cost.shape == () )
+	return cost
+```
 
 ### Backpropagation
 
