@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a B.Tech undergrad pursuing Computer engineering. I am interested in Machine Learning and learning about its various applications. Deep Learning is a field that fascinates me. 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Deep Learning saw its huge boom few years back and is roaring out looud now. This is by far the apt time to get into this field and contribute to the community. There is a need to keep learning and sharing the knowledge with others.<br>
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[Abhishek Bhatt](mailto:abhishek1995bhatt@gmail.com)
